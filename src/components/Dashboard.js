@@ -5,24 +5,24 @@ import {Container, Button, Form, Input, FormGroup} from 'reactstrap'
 class Dashboard extends Component{
     constructor(props){
         super(props);
-        this.state ={}
+        this.state = {}
     }
 
     componentDidMount(){
         const  user = JSON.parse(LocalStorage.getItem("user"));
         console.log("Early ");
         console.log(user);
-        this.setState({user:user})
-        console.log(this.state.user);
+        this.setState({...user})
+        console.log(this.state);
     }
 
 
 
     render(){
         return(
-            <Container class="container">
+            <Container className="container">
                 <h1>Dashboard</h1>
-                <div class="dashboard">
+                <div className="dashboard">
                    <Form>
                      <FormGroup>
                          <Input name="Search" placeholder="Search"/>
@@ -32,7 +32,8 @@ class Dashboard extends Component{
                    <div className="infoPanel">
                         <h2>User Info</h2>
                         <div className="infobodyPanel">
-                       
+                        <p>{this.state.user.email}</p>
+                        <p>{this.state.user.token}</p>
                         </div>
                    </div>
                 </div>
