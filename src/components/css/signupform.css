@@ -1,0 +1,24 @@
+body,html {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.panel{
+    background-color: #efefefef;
+    border-radius: 15px;
+    padding: 60px 40px;
+    /* width: 600px; */
+    min-width:40vw;
+}
+.signupHeader{
+    color:blue;
+    width:100%;
+    text-align:center;
+
+}
+.signupForm{
+    margin: 0 auto;
+}
