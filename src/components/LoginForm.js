@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import './css/loginForm.css'
 import {Container, Label, Form, Input, FormGroup, Button} from 'reactstrap'
 import LocalStorage from 'localStorage'
+import Nav from './Nav'
+
 
 class LoginForm extends Component{
    constructor(props){
@@ -37,9 +39,11 @@ class LoginForm extends Component{
     
     render(){
         return(
-        <Container className="loginForm">
-            
-                <Form >
+              
+              <Container>
+                  <Nav/>
+                  <h1 class="signupHeader">Login Form</h1>
+              <Form >
                 <FormGroup>
                     <Label for="email">Email</Label>
                     <Input type="text" name="email" id="email" placeholder="Enter Email" onChange={(e)=>this.handleChange(e)}/>

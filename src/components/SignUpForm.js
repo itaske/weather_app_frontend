@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Container, Button, Input, FormGroup, Form, Label} from 'reactstrap'
 import'./css/signupform.css'
+import Nav from './Nav'
 
 class SignUpForm extends Component{
     constructor(props){
@@ -16,9 +17,16 @@ class SignUpForm extends Component{
              "method":"POST",
              "headers":{"Accept":"application/json" , "Content-Type":"application/json"},
              "body":JSON.stringify(this.state.user)
-    }).then(res=>{return res.json()})
+    }).then(res=>{
+        if (res.status === 200)
+          return res.json();
+        else{
+            return {};
+        }  
+    })
     .then((data)=>{
         console.log(data);
+        window.location.href = "/login"
     }).catch((err)=>console.log(err))
      }
     }
@@ -33,6 +41,8 @@ class SignUpForm extends Component{
    
     render(){
         return(
+            <Container >
+                <Nav/>
                 <div className="panel">
                     <h1 className="signupHeader">Signup Form </h1>
                 <Form className="signupForm">
@@ -51,6 +61,7 @@ class SignUpForm extends Component{
                     <Button color="primary" onClick={this.handleSubmit}>Sign up</Button>
                 </Form>
                 </div>
+                </Container> 
         )
     }
 }
